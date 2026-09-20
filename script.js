@@ -107,11 +107,8 @@ function dragEventsOnColumn(column) {
            localStorage.setItem("tasks", JSON.stringify(taskData))
             console.log(taskData)
             count.innerText = tasks.length
-        })
-
-       
+        })     
     })
-
 }
 dragEventsOnColumn(todo);
 dragEventsOnColumn(progress);
