@@ -27,7 +27,7 @@ function deleteTask(val){
                     description: t.querySelector("p").innerText
                 }
             })
-           localStorage.setItem("tasks", JSON.stringify(taskData))
+           localStorage.setItem("kanbantasks", JSON.stringify(taskData))
             console.log(taskData)
             count.innerText = tasks.length
         })
@@ -35,10 +35,12 @@ function deleteTask(val){
 
 }
 
-if (localStorage.getItem("tasks")) {
-    const data = JSON.parse(localStorage.getItem("tasks"));
+if (localStorage.getItem("kanbantasks")) {
+    const data = JSON.parse(localStorage.getItem("kanbantasks"));
+    console.log(data)
     for (const col in data) {
         const column = document.querySelector(`#${col}`)
+        console.log(column)
 
         data[col].forEach(task => {
             const div = document.createElement("div");
@@ -60,7 +62,7 @@ if (localStorage.getItem("tasks")) {
             column.appendChild(div)
 
             div.addEventListener("drag", (e) => {
-                dragElement = div;
+                draggedItem = div;
             })
         })
     }
@@ -70,7 +72,7 @@ let draggedItem = null;
 
 tasks.forEach(task => {
     task.addEventListener("drag", (e) => {
-        dragElement = task;
+        draggedItem = task;
     })
 })
 
@@ -90,7 +92,7 @@ function dragEventsOnColumn(column) {
     column.addEventListener("drop", (e) => {
         e.preventDefault();
 
-        column.appendChild(dragElement);
+        column.appendChild(draggedItem);
         column.classList.remove("hover-over");
 
         columns.forEach(col => {
@@ -104,7 +106,7 @@ function dragEventsOnColumn(column) {
                     description: t.querySelector("p").innerText
                 }
             })
-           localStorage.setItem("tasks", JSON.stringify(taskData))
+           localStorage.setItem("kanbantasks", JSON.stringify(taskData))
             console.log(taskData)
             count.innerText = tasks.length
         })     
@@ -137,6 +139,7 @@ function clearTaskForm(){
 // add new task
 
 addTaskbutton.addEventListener("click", (e) => {
+    console.log("button clicked")
     const taskTitle = document.querySelector("#task-title").value;
     const description = document.querySelector("#task-description").value;
 
@@ -167,12 +170,12 @@ addTaskbutton.addEventListener("click", (e) => {
                 description: t.querySelector("p").innerText
             }
         })
-        localStorage.setItem("tasks", JSON.stringify(taskData))
+        localStorage.setItem("kanbantasks", JSON.stringify(taskData))
         console.log(taskData)
         count.innerText = tasks.length
     })
     div.addEventListener("drag", (e) => {
-        dragElement = div;
+        draggedItem = div;
     })
     clearTaskForm();
     modal.classList.remove("active")
