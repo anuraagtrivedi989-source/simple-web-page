@@ -1,0 +1,142 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+html,
+body{
+    width:100%;
+    height:100vh;
+}
+:root{
+    --border-radius-s: 10px;
+    --border-radius-m:15px;
+    --border-radius-l:20px;
+     --button-padding: 5px 15px;
+     --nav-padding: 15px 30px;
+
+     --bg-button-color: #1a1a1a;
+     --bg-background-color:#3a3a3a;
+
+}
+
+body{
+    box-sizing:border-box;
+}
+
+nav{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    padding: var(--nav-padding);
+    background: #214141;
+    border-radius:10px;
+}
+nav button{
+    border-radius: var(--border-radius-s);
+    outline:none;
+    border:none;
+    color:white;
+    padding:var(--button-padding);
+    background-color: var(--bg-button-color);
+}
+nav .logo{
+    font-size:20px;
+    Font-weight:bold;
+    color:rgb(33, 189, 189)
+}
+header{
+    padding:2px;
+}
+
+main{
+    scrollbar-width: none;
+    overflow-y: scroll;
+    position:relative;
+    height:100vh;
+    padding:20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color:#214141
+}
+
+.added-task{
+  border-radius:var(--border-radius-s);
+  padding:10px;
+  border:2px solid black;
+  display:none;
+  flex-direction:column;
+}
+.added-task.addactive{
+    display:flex;
+}
+.added-task .heading{
+    padding:3px;
+    background-color:var(--bg-background-color);
+    margin-bottom :5px;
+    color:white;
+}
+.added-task .task{
+    display: flex;
+    flex-direction:column;
+    border:2px solid black;
+    padding:5px;
+    margin-bottom: 5px;
+    gap:5px;
+    border-radius: var(--border-radius-s);
+
+}
+.added-task .task button{
+    width:50px;
+    justify-self:flex-end;
+}
+.completed-task {
+    border:1px solid black;
+    padding:4px;
+}
+
+.completed-task .heading{
+    padding:3px;
+    background-color:var(--bg-background-color);
+    margin-bottom :5px;
+    color:white;
+}
+.completed-task {
+    display: none;
+}
+.completed-task.completedactive{
+    display:flex;
+}
+.addTask{
+    left:100px;
+    top:100px;
+    position:absolute;
+    display:none;
+    flex-direction:column;
+}
+.addTask.taskactivate{
+    display:flex;
+
+}
+form{
+    display:flex;
+    flex-direction:column;
+    width:40vw;
+    padding:20px;
+    border:2px solid black;
+    align-self:center;
+    border-radius:10px;
+    background:var(--bg-background-color);
+}
+form input{
+    border: 1px solid black;
+     margin:4px;
+     padding:5px;
+     border-radius:10px;
+}
+form button{
+    width:40px;
+    align-self: center;
+    margin-top:2px;
+}
